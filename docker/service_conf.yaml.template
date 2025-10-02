@@ -4,6 +4,7 @@ ragflow:
 admin:
   host: ${RAGFLOW_HOST:-0.0.0.0}
   http_port: 9381
+# MySQL configuration (used when DB_TYPE=mysql)
 mysql:
   name: '${MYSQL_DBNAME:-rag_flow}'
   user: '${MYSQL_USER:-root}'
@@ -13,6 +14,16 @@ mysql:
   max_connections: 900
   stale_timeout: 300
   max_allowed_packet: ${MYSQL_MAX_PACKET:-1073741824}
+
+# PostgreSQL configuration (used when DB_TYPE=postgres)
+postgres:
+  name: '${POSTGRES_DBNAME:-rag_flow}'
+  user: '${POSTGRES_USER:-rag_flow}'
+  password: '${POSTGRES_PASSWORD:-infini_rag_flow}'
+  host: '${POSTGRES_HOST:-postgres}'
+  port: 5432
+  max_connections: 900
+  stale_timeout: 300
 minio:
   user: '${MINIO_USER:-rag_flow}'
   password: '${MINIO_PASSWORD:-infini_rag_flow}'
